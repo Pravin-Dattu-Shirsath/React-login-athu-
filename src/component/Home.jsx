@@ -10,7 +10,7 @@ function Home() {
  
   const [posts,setPosts]=useState([]);
  
- 
+
   useEffect(() => {
    
     getAllpost();
@@ -22,7 +22,7 @@ function Home() {
       try {
       const allpost = await axios.get("https://jsonplaceholder.typicode.com/posts")
      
-      setPosts( allpost.data);
+      setPosts(allpost.data);
       
   } catch (error){
       console.log("Something is wrong")
@@ -42,14 +42,14 @@ const [pagination,setPagination]=useState({
 const onpagination=(start,end)=>{
     setPagination({start:start,end:end})
 }
-  //dark mode btn
-  const darkmodebtn=()=>{
-    if(mode===true){
-      setMode(false)
-    }else{
-       setMode(true)
-    }
-  }
+  // //dark mode btn
+  // const darkmodebtn=()=>{
+  //   if(mode===true){
+  //     setMode(false)
+  //   }else{
+  //      setMode(true)
+  //   }
+  // }
   const logout =()=>{
     localStorage.setItem("admin",JSON.stringify({login:false})) 
     navigate("/") 
@@ -59,7 +59,7 @@ const onpagination=(start,end)=>{
 <div className={` ${mode===true?"bg-dark":null}`}>
    <nav class="navbar navbar-light bg-warning">
   <div>
-   <h4 className="btn btn-light" onClick={logout}>logout</h4>
+   <h4 className="bg-light p-1 px-2 pb-2  rounded-1" onClick={logout}><i class="fa fa-sign-out" aria-hidden="true"></i><small>log-out</small></h4>
     
     
   </div>
@@ -100,8 +100,8 @@ const onpagination=(start,end)=>{
      })
             }
           </div>
-          <Pagination perPageShow={perPageShow} onpagination={onpagination} total={ 100} />
-         
+          <Pagination perPageShow={perPageShow} onpagination={onpagination} total={100} />
+        
         </div>
 
         
