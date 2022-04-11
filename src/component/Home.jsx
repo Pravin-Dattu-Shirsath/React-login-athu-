@@ -42,16 +42,9 @@ const [pagination,setPagination]=useState({
 const onpagination=(start,end)=>{
     setPagination({start:start,end:end})
 }
-  // //dark mode btn
-  // const darkmodebtn=()=>{
-  //   if(mode===true){
-  //     setMode(false)
-  //   }else{
-  //      setMode(true)
-  //   }
-  // }
+ 
   const logout =()=>{
-    localStorage.setItem("admin",JSON.stringify({login:false})) 
+    localStorage.setItem("admin2",JSON.stringify({login:false})) 
     navigate("/") 
   }
   return (<>
@@ -100,10 +93,7 @@ const onpagination=(start,end)=>{
      })
             }
           </div>
-         {
-         posts.length!==0? <Pagination perPageShow={perPageShow} onpagination={onpagination} total={posts.length} />
-       :""
-       }
+          <Pagination perPageShow={perPageShow} onpagination={onpagination} total={100} />
         
         </div>
 
