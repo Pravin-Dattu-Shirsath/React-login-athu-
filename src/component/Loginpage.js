@@ -16,13 +16,20 @@ const alluser = () => {
   }
 }
 
-
+const admin2 = () => {
+  const admin2 = localStorage.getItem("admin2");
+  if(admin2){
+      return JSON.parse(admin2)
+  }else {
+      return [];
+  }
+}
 function Loginpage() {
 
   
 
   const navigate = useNavigate()
-
+  const [admin,setAdmin]=useState(admin2)
 const [user,setUser]=useState( alluser)
 const [email,setEmail]= useState("")
 const [password,setPassword]= useState("")
@@ -42,7 +49,11 @@ const formSchema = Yup.object().shape({
  //END FORM VALIDATION
 
  useEffect (() => {
-
+if(admin.login===true){
+  navigate("/admin")
+}else{
+  navigate("/")
+}
 },[])
 
 const filtered_arr = [];
@@ -56,7 +67,7 @@ const Submit = () => {
   filtered_arr.map(ele => {
      if (password === ele.password){
          navigate("/admin")
-        
+        localStorage.setItem("admin2",JSON.stringify({login:true}))
      }else {
       
      }
