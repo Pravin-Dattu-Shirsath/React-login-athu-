@@ -89,7 +89,7 @@ const passHide=()=>{
 
 <Online>
     <div className="container  f1  mt-5 text-white shadow-lg p-3 mb-3  rounded-3">
-      <h2>Register form</h2>
+      <h2>login</h2>
       <form onSubmit={handleSubmit(Submit)}>
      
       
