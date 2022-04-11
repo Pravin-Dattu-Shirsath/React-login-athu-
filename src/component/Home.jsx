@@ -93,7 +93,10 @@ const onpagination=(start,end)=>{
      })
             }
           </div>
-          <Pagination perPageShow={perPageShow} onpagination={onpagination} total={100} />
+         {
+         posts.length!==0? <Pagination perPageShow={perPageShow} onpagination={onpagination} total={posts.length} />
+       :""
+       } 
         
         </div>
 
